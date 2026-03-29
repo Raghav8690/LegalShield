@@ -42,25 +42,27 @@ LegalShield uses the **gitagent standard** and is built to run entirely inside a
 ### Option 1: Run in Browser (Zero Install)
 
 1. Go to [play.clawless.io](https://play.clawless.io)
-2. Connect your GitHub account or paste this repository URL
-3. Clawless will automatically boot the WebContainer, read the `agent.yaml`, and instantiate **Lex** (your LegalShield companion)
-4. Start chatting in the terminal!
+2. Paste this repository URL in the top search bar: `https://github.com/Raghav8690/LegalShield`
+3. Click the gear icon ⚙️ on the right side and input your `ANTHROPIC_API_KEY`.
+4. Clawless will automatically boot the WebContainer, read the `agent.yaml`, and instantiate **Lex**.
+5. Start chatting in the terminal at the bottom!
 
 ### Option 2: Run Locally (CLI)
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/your-org/legalshield-agent
-cd legalshield-agent
+git clone https://github.com/Raghav8690/LegalShield
+cd LegalShield
 
-# 2. Validate the gitagent structure
-npx gitagent validate
+# 2. Set your API Key
+export ANTHROPIC_API_KEY="sk-ant-..." 
+# (Note: Use $env:ANTHROPIC_API_KEY="sk-ant-..." if using Windows PowerShell)
 
-# 3. View agent info
-npx gitagent info
+# 3. Install the engine globally (Highly recommended for Windows users to avoid TTY issues)
+npm install -g gitclaw
 
-# 4. Run the agent locally using gitclaw
-npx gitclaw run
+# 4. Run the agent
+gitclaw run
 ```
 
 ---
