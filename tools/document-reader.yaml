@@ -1,0 +1,61 @@
+name: document-reader
+description: "Ingests pasted document text for analysis by the document-analyzer skill. Processes plain text input from contracts, leases, agreements, and other legal documents."
+
+parameters:
+  - name: document_text
+    type: string
+    required: true
+    description: "The full text of the legal document to analyze, pasted by the user"
+
+  - name: document_type
+    type: string
+    required: false
+    description: "Optional document type classification to guide analysis"
+    enum:
+      - lease
+      - employment_contract
+      - service_agreement
+      - nda
+      - loan_agreement
+      - terms_of_service
+      - insurance_policy
+      - non_compete
+      - franchise_agreement
+      - other
+
+  - name: user_concerns
+    type: string
+    required: false
+    description: "Specific areas or clauses the user wants focused attention on"
+
+output:
+  type: object
+  properties:
+    document_type:
+      type: string
+      description: "Classified document type"
+    parties:
+      type: array
+      items:
+        type: string
+      description: "Parties identified in the document"
+    key_dates:
+      type: object
+      properties:
+        effective_date:
+          type: string
+        expiration_date:
+          type: string
+        notice_periods:
+          type: string
+    word_count:
+      type: integer
+      description: "Total word count of the document"
+    sections_identified:
+      type: array
+      items:
+        type: string
+      description: "Major sections or clauses identified in the document"
+    ready_for_analysis:
+      type: boolean
+      description: "Whether the document has been successfully ingested and is ready for analysis"

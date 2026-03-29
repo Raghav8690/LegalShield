@@ -1,0 +1,62 @@
+name: jurisdiction-lookup
+description: "Resolves a user's location to a specific legal jurisdiction and identifies the applicable legal framework, court system, and relevant statutes."
+
+parameters:
+  - name: country
+    type: string
+    required: true
+    description: "The user's country (e.g., 'India', 'United States', 'United Kingdom', 'Canada', 'Australia')"
+
+  - name: state_province
+    type: string
+    required: true
+    description: "The user's state, province, or territory (e.g., 'Maharashtra', 'California', 'Ontario')"
+
+  - name: city
+    type: string
+    required: false
+    description: "The user's city for more specific local law references (e.g., 'Mumbai', 'Los Angeles')"
+
+  - name: legal_area
+    type: string
+    required: true
+    description: "The area of law being addressed"
+    enum:
+      - housing
+      - employment
+      - consumer
+      - family
+      - criminal
+      - immigration
+      - contract
+      - privacy
+
+output:
+  type: object
+  properties:
+    jurisdiction_name:
+      type: string
+      description: "Full jurisdiction identifier (e.g., 'Maharashtra, India')"
+    applicable_statutes:
+      type: array
+      items:
+        type: string
+      description: "List of relevant statutes and laws for this jurisdiction and legal area"
+    court_system:
+      type: string
+      description: "The appropriate court or forum for this type of dispute"
+    small_claims_limit:
+      type: string
+      description: "Small claims court monetary limit for this jurisdiction"
+    legal_aid_authority:
+      type: string
+      description: "Primary legal aid organization for this jurisdiction"
+    emergency_numbers:
+      type: object
+      properties:
+        police:
+          type: string
+        emergency:
+          type: string
+        legal_helpline:
+          type: string
