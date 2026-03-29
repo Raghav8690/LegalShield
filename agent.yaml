@@ -7,7 +7,7 @@ description: >
   detect crisis situations, and find free legal aid - all in plain language, across 5 countries.
 
 model:
-  preferred: "anthropic:claude-3-5-sonnet-20241022"
+  preferred: "google:gemini-2-flash"
   fallback: "openai:gpt-4o"
 
 runtime:
