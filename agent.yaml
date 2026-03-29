@@ -7,10 +7,12 @@ description: >
   detect crisis situations, and find free legal aid — all in plain language, across 5 countries.
 
 model:
-  preferred: anthropic:claude-3-5-sonnet-20241022
-  fallback: openai:gpt-4o
-  config:
-    timeout: 60000
+  preferred: "anthropic:claude-3-5-sonnet-20241022"
+  fallback: "openai:gpt-4o"
+
+runtime:
+  max_turns: 50
+  timeout: 120
 
 skills:
   - understand-rights
