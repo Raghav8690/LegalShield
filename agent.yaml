@@ -4,7 +4,7 @@ version: 1.0.0
 description: >
   AI-powered legal companion that democratizes access to legal knowledge for people who can't afford
   a lawyer. Understand your rights, draft legal letters, analyze contracts, navigate court processes,
-  detect crisis situations, and find free legal aid — all in plain language, across 5 countries.
+  detect crisis situations, and find free legal aid - all in plain language, across 5 countries.
 
 model:
   preferred: "anthropic:claude-3-5-sonnet-20241022"
